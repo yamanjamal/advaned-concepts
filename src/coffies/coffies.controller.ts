@@ -36,7 +36,11 @@ export class CoffiesController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateCoffyDto: UpdateCoffyDto) {
+  update(
+    // @Param('id', EntityExistsPipe(Coffie )) id: string,
+    @Param('id') id: string,
+    @Body() updateCoffyDto: UpdateCoffyDto,
+  ) {
     return this.coffiesService.update(+id, updateCoffyDto);
   }
 
